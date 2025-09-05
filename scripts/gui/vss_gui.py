@@ -447,7 +447,7 @@ class TextSearchApp:
                 "unit": row[3],
                 "min": float(row[4]) if row[4] != '' else "", # Conversion of string to double only if entry is available 
                 "max": float(row[5]) if row[5] != '' else "", # Conversion of string to double only if entry is available
-                "default": float(row[6]) if row[6] != '' else "", # Conversion of string to double only if entry is available
+                "default": row[6] if (row[6] == "UNKNOWN") else (float(row[6]) if (row[6] != '') else ""), #lists are not supported in this version
                 "allowed": ast.literal_eval(row[7]) if row[7] != '' else "", # Conversion of string to python list
                 "description": row[8],
             }
